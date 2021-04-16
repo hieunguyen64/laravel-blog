@@ -40,7 +40,7 @@
                 </div>
             </li>
             @empty
-                <h3 class="text-center">{{ lang('Nothing') }}</h3>
+            <h3 class="text-center">{{trans("Article::tran.Nothing")}}</h3>
             @endforelse
         </ul>
     </div>

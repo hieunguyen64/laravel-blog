@@ -23,7 +23,7 @@ return [
     'Logout'      => 'Log Out',
     'Login'       => 'Log In',
     'Register'    => 'Register',
-    'Edit Profile'=> 'Edit Profile',
+    'Edit Profile' => 'Edit Profile',
     'Create Discussion' => 'Create Discussion',
     'Edit Discussion'  => 'Edit Discussion',
     'Discuss Problem'  => 'Discuss Problem',

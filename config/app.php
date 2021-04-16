@@ -164,13 +164,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Passport\PassportServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
-        JellyBool\Translug\TranslugServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        Laravel\Tinker\TinkerServiceProvider::class,
-        Jcc\LaravelVote\VoteServiceProvider::class,
-        JellyBool\Flysystem\Upyun\UpyunServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -180,7 +173,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        Modules\ServicesProvider::class
     ],
 
     /*

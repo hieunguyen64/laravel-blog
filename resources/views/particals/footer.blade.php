@@ -24,7 +24,7 @@
                     @endif
                 </ul>
                 <div class="links">
-                    <a href="{{ url('link') }}">{{ lang('Links') }}</a>
+                    <a href="{{ url('link') }}">{{trans("Article::tran.Links")}}</a>
                 </div>
             </div>
         </div>
