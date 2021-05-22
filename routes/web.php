@@ -1,7 +1,7 @@
 <?php
 
 // User Auth
-Auth::routes();
+// Auth::routes();
 Route::post('password/change', 'UserController@changePassword')->middleware('auth');
 
 // Github Auth Route
@@ -68,5 +68,5 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 });
 
 // Article
-Route::get('/', 'ArticleController@index');
+// Route::get('/', 'ArticleController@index');
 // Route::get('{slug}', 'ArticleController@show');

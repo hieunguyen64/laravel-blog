@@ -13,9 +13,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
-{
-    use HasApiTokens, Notifiable, SoftDeletes, FollowTrait, Vote, HasRoles, Filterable;
+class User extends Authenticatable {
+    use HasApiTokens, Notifiable, SoftDeletes, FollowTrait, HasRoles, Filterable;
 
     /**
      * The attributes that should be mutated to dates.
@@ -67,8 +66,7 @@ class User extends Authenticatable
      *
      * @return void
      */
-    public static function boot()
-    {
+    public static function boot() {
         parent::boot();
 
         static::addGlobalScope(new StatusScope());
@@ -79,8 +77,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function discussions()
-    {
+    public function discussions() {
         return $this->hasMany(Discussion::class)->orderBy('created_at', 'desc');
     }
 
@@ -89,8 +86,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function comments()
-    {
+    public function comments() {
         return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
     }
 
@@ -99,8 +95,7 @@ class User extends Authenticatable
      *
      * @return int
      */
-    public function isSuperAdmin()
-    {
+    public function isSuperAdmin() {
         return ($this->id == config('blog.super_admin')) ? 1 : 0;
     }
 
@@ -110,8 +105,7 @@ class User extends Authenticatable
      * @param string $value
      * @return string
      */
-    public function getAvatarAttribute($value)
-    {
+    public function getAvatarAttribute($value) {
         return isset($value) ? $value : config('blog.default_avatar');
     }
 
@@ -120,8 +114,7 @@ class User extends Authenticatable
      *
      * @return string
      */
-    public function routeNotificationForMail()
-    {
+    public function routeNotificationForMail() {
         if (auth()->id() != $this->id && $this->email_notify_enabled == 'yes' && config('blog.mail_notification')) {
             return $this->email;
         }
@@ -136,8 +129,7 @@ class User extends Authenticatable
      *
      * @return boolean
      */
-    public static function upOrDownVote($user, $target, $type = 'up')
-    {
+    public static function upOrDownVote($user, $target, $type = 'up') {
         $hasVoted = $user->{'has' . ucfirst($type) . 'Voted'}($target);
 
         if ($hasVoted) {
